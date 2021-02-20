@@ -9,7 +9,11 @@ const names = Object.keys(nameToPic);
 
 export default function GameScreen() {
   // TODO: Declare and initialize state variables here, using "useState".
-
+  const [score, setScore] = useState(0)
+  const [total, setTotal] = useState(0)
+  const [ansCorrect, setAnsCorrect] = useState("")
+  const [memberNames, setMemberNames] = useState([])
+  const [memberImage, setMemberImage] = useState("")
   // State for the timer is handled for you.
   const [timeLeft, setTimeLeft] = useState(5000);
 
@@ -21,6 +25,7 @@ export default function GameScreen() {
     } else {
       // Time has expired
       // TODO: update appropriate state variables
+      setTotal(total+1)
     }
   };
 
@@ -44,13 +49,20 @@ export default function GameScreen() {
     nameOptions = shuffle(nameOptions);
 
     // TODO: Update state here.
-
+    setMemberImage(correctImage);
+    setMemberNames(nameOptions); 
+    setAnsCorrect(correctName);
     setTimeLeft(5000);
   };
 
   // Called when user taps a name option.
   // TODO: Update correct # and total # state values.
-  const selectedNameChoice = (index) => {};
+  const selectedNameChoice = (index) => {
+    if (memberNames[index] === ansCorrect){
+      setScore(score + 1);
+    }
+    setTotal(total + 1) 
+  };
 
   // Call the countDown() method every 10 milliseconds.
   useEffect(() => {
@@ -68,6 +80,7 @@ export default function GameScreen() {
     },
     [
       /* TODO: Your State Variable Goes Here */
+      total
     ]
   );
 
@@ -83,7 +96,10 @@ export default function GameScreen() {
         onPress={() => selectedNameChoice(j)}
       >
         <Text style={styles.buttonText}>
-          {/* TODO: Use something from state here. */}
+          {/* TODO: Use something from state here. */
+          
+          memberNames[j] 
+          }
         </Text>
       </TouchableOpacity>
     );
@@ -93,11 +109,18 @@ export default function GameScreen() {
 
   // Style & return the view.
   return (
-    <View>
+    <View style = {styles.container}>
       {/* TODO: Build out your UI using Text and Image components. */}
       {/* Hint: What does the nameButtons list above hold? 
           What types of objects is this list storing?
           Try to get a sense of what's going on in the for loop above. */}
+      <Text style = {styles.scoreText}>Current Score: {score} / {total}</Text>
+      <Text style = {styles.timerText}>Time Remaining: {timeRemainingStr}</Text>
+      <Image
+          source = {memberImage} 
+          style = {styles.image}
+      />
+      <TouchableOpacity>{nameButtons}</TouchableOpacity>
     </View>
   );
 }
