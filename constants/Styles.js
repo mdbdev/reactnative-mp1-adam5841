@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   buttonText: {
-    fontFamily: "Avenir",
+    fontFamily: "sans-serif",
     fontWeight: "600",
     fontSize: 18,
     color: "white",
   },
   timerText: {
-    fontFamily: "Avenir",
+    fontFamily: "sans-serif",
     fontWeight: "700",
     fontSize: 24,
     color: "#e74c3c",
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   scoreText: {
-    fontFamily: "Avenir",
+    fontFamily: "sans-serif",
     fontWeight: "700",
     fontSize: 24,
     color: "#3498db",

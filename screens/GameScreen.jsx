@@ -21,7 +21,7 @@ export default function GameScreen() {
   const countDown = () => {
     if (timeLeft > 0) {
       // Time still left, so decrement time state variable
-      setTimeLeft(timeLeft - 10);
+      setTimeLeft(timeLeft - 15);
     } else {
       // Time has expired
       // TODO: update appropriate state variables

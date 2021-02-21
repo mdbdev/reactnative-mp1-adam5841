@@ -17,7 +17,7 @@ import { Asset } from "expo-asset";
 // To initialize and style our Navigation Stack, we call the default methods
 // https://reactnavigation.org/docs/hello-react-navigation
 const Stack = createStackNavigator();
-const StackOptions = { headerTitleStyle: { fontFamily: "Avenir" } };
+const StackOptions = { headerTitleStyle: { fontFamily: "sans-serif" } };
 
 // Loading all images for quick use (eliminates lag problem)
 // https://docs.expo.io/versions/latest/sdk/asset/
